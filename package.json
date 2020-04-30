@@ -1,15 +1,17 @@
 {
 	"name": "active-win",
 	"version": "6.1.0",
-	"description": "Get metadata about the active window (title, id, bounds, owner, URL, etc). Works on macOS, Linux, Windows.",
+	"description": "Get metadata about the active window (title, id, bounds, owner, etc). Works on macOS, Linux, Windows.",
 	"license": "MIT",
-	"repository": "sindresorhus/active-win",
-	"funding": "https://github.com/sponsors/sindresorhus",
+	"repository": "jffernandez/active-win",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
 		"url": "https://sindresorhus.com"
 	},
+	"contributors": [
+		"Jose F. Fernández"
+	],
 	"engines": {
 		"node": ">=8"
 	},
@@ -60,7 +62,7 @@
 	},
 	"optionalDependencies": {
 		"ffi-napi": "^2.4.5",
-		"ref-napi": "^1.4.2",
+		"ref-napi": "^2.0.0",
 		"ref-wchar-napi": "^1.0.2",
 		"ref-struct-napi": "^1.1.0"
 	}

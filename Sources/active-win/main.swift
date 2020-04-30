@@ -1,16 +1,5 @@
 import AppKit
 
-func getActiveBrowserTabURLAppleScriptCommand(_ appName: String) -> String? {
-	switch appName {
-	case "Google Chrome", "Brave Browser", "Microsoft Edge":
-		return "tell app \"\(appName)\" to get the URL of active tab of front window"
-	case "Safari":
-		return "tell app \"Safari\" to get URL of front document"
-	default:
-		return nil
-	}
-}
-
 // Show accessibility permission prompt if needed. Required to get the complete window title.
 if !AXIsProcessTrustedWithOptions(["AXTrustedCheckOptionPrompt": true] as CFDictionary) {
 	print("active-win requires the accessibility permission in “System Preferences › Security & Privacy › Privacy › Accessibility”.")
@@ -70,14 +59,6 @@ for window in windows {
 		],
 		"memoryUsage": window[kCGWindowMemoryUsage as String] as! Int
 	]
-
-	// Only run the AppleScript if active window is a compatible browser.
-	if
-		let script = getActiveBrowserTabURLAppleScriptCommand(appName),
-		let url = runAppleScript(source: script)
-	{
-		dict["url"] = url
-	}
 
 	print(try! toJson(dict))
 	exit(0)
